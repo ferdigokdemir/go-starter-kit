@@ -85,28 +85,28 @@ config/config.json dosyasını açın. Veritabanı ve redis host ve port configu
     }
   },
   "compression": {
-    "enabled": true
+    "enabled": false // gzip compress default olarak kapalıdır açmak için true yapın
   },
   "cors": {
-    "enabled": true
+    "enabled": false // cors güvenlik için default kapalıdır. Production ortamında false yapın.
   },
   "prefork": {
-    "enabled": false
+    "enabled": false // Yüksek performans için açabilirsiniz.
   },
   "helmet": {
-    "enabled": true
+    "enabled": true // Http güvenliği için default değeri açıktır.
   },
   "logger": {
-    "enabled": true
+    "enabled": false // Api'ye gelen requestleri console'da görmek için true yapın
   },
   "ratelimit": {
-    "enabled": true
+    "enabled": false // Brute force ataklarına karşı enable yapabilirsiniz.
   },
   "redisCache": {
-    "enabled": true
+    "enabled": true // Veritabanından çektiğiniz verileri daha hızlı sunmak için redis'e kaydedin.
   },
   "favicon": {
-    "ignore": false,
+    "ignore": false, // Tarayıcıdan apinize gelen requestlerde, extra favicon isteğide atılır. Buda gereksiz disk okuması demektir. Ignore true yaparsanız performans artışı sağlar. Veya cache true yapın.
     "cache": true
   }
 }
