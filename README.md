@@ -1,6 +1,8 @@
 # go-starter-kit
 
-> Bu projeyi go diline yeni başlayanlar için hazırladım. Starter kit konusunda yıllarca çalıştığım için Go dilinde uzman kişiler içinde güzel bir boilerplate'dir.
+> Starter kit'lerin en büyük faydası her proje için proje altyapısı kurmakla uğraşmazsınız. Elinizin altında en çok kullanacağınız eklentiler modüller ve proje dizaynı hazırdır.
+
+Projeyi bilgisayarınıza indirin, ayarları projenize uygun şekilde değiştirin ve geliştirmeye başlayın :)
 
 ## Projede neler var?
 
