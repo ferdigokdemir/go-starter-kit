@@ -6,7 +6,7 @@
 
 * Yüksek performanslı ve express.js'in Go diline uyarlanması olan [Fiber](https://gofiber.io) çatısını kullandım.
 * Environment varible configurasyonu için popüler [Viper](https://github.com/spf13/viper) eklentisini kullandım.
-* Cache kullanımı için [redis](github.com/go-redis/redis)
+* Cache kullanımı için [redis](https://github.com/go-redis/redis)
 * Veritabanı yönetimi için popüler orm eklentisi [Gorm](https://gorm.io/)
 * Rate limit için [Fiber Limiter](https://github.com/gofiber/limiter)
 * Gzip, Brotli sıkıştırma için [Fiber Compression](https://github.com/gofiber/compression)
@@ -53,11 +53,64 @@ README.md
 
 ## Kurulum
 
-Repoyu Klonlayın:
-
 ```
 $ git clone git@github.com:ferdigokdemir/go-starter-kit.git
 $ cd go-starter-kit
+```
+
+## Ayarlar
+config/config.json dosyasını açın. Veritabanı ve redis host ve port configurasyonlarını ayarlayın. Eğer redisCache enabled: false ise redis ayarları yapmanız gerek yok.
+```
+{
+  "app": {
+    "name": "go-starter-kit",
+    "domain": "localhost",
+    "port": 4141,
+    "dev": true
+  },
+  "database": {
+    "enabled": true,
+    "mongodb": {
+      "database": "icindenevar",
+      "uri": "mongodb://lucy:mJCAbT3Vdc6I7bj0@icindenevar-shard-00-00.iby7b.mongodb.net:27017,icindenevar-shard-00-01.iby7b.mongodb.net:27017,icindenevar-shard-00-02.iby7b.mongodb.net:27017/icindenevar?ssl=true&replicaSet=atlas-6y38ji-shard-0&authSource=admin&retryWrites=true&w=majority"
+    },
+    "mysql": {
+      "host": "localhost:3306",
+      "user": "",
+      "password": "",
+      "database": ""
+    },
+    "redis": {
+      "uri": "redis://h:pe6481c1f5f9a56da6cdd147661fd344189e2f81cc756d640f2a7a4ce6bc769a6@ec2-54-158-192-49.compute-1.amazonaws.com:22079"
+    }
+  },
+  "compression": {
+    "enabled": true
+  },
+  "cors": {
+    "enabled": true
+  },
+  "prefork": {
+    "enabled": false
+  },
+  "helmet": {
+    "enabled": true
+  },
+  "logger": {
+    "enabled": true
+  },
+  "ratelimit": {
+    "enabled": true
+  },
+  "redisCache": {
+    "enabled": true
+  },
+  "favicon": {
+    "ignore": false,
+    "cache": true
+  }
+}
+
 ```
 
 ## Çalıştır
