@@ -60,7 +60,7 @@ $ cd go-starter-kit
 
 ## Ayarlar
 config/config.json dosyasını açın. Veritabanı ve redis host ve port configurasyonlarını ayarlayın. Eğer redisCache enabled: false ise redis ayarları yapmanız gerek yok.
-```
+```javascript
 {
   "app": {
     "name": "go-starter-kit",
