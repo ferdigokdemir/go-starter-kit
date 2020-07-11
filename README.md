@@ -22,9 +22,8 @@
 * [golang](https://golang.org/)
 * Çalışan bir [redis](https://redis.io/) server. Eğer config dosyanızdan redis cache'yi disable ediyorsanız kurmanıza gerek yok.
 
-## Proje altyapısı
+## Proje Dizaynı
 
-##### Folder Structure
 ```
 config
 └── database
