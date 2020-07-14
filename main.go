@@ -4,8 +4,12 @@ import (
 	"go-starter-kit/config/database"
 	"go-starter-kit/config/routes"
 
-	"github.com/gofiber/helmet"
 	"log"
+
+	"github.com/gofiber/fiber/middleware"
+	"github.com/gofiber/helmet"
+	"github.com/gofiber/limiter"
+	"github.com/gofiber/recover"
 
 	"github.com/gofiber/compression"
 	"github.com/gofiber/cors"
@@ -27,8 +31,15 @@ func init() {
 func main() {
 	app := fiber.New()
 
+	if viper.GetBool("redisCache.enabled") {
+		redis.Connect()
+		app.Use(middlewares.RedisCache)
+	}
+
+	app.Use(recover.New())
+
 	if viper.GetBool("compression.enabled") {
-		app.Use(compression.New(compression.Config{Level: compression.LevelBrotliBestCompression}))
+		app.Use(compression.New())
 	}
 
 	if viper.GetBool("cors.enabled") {
@@ -48,7 +59,19 @@ func main() {
 	}
 
 	if viper.GetBool("database.enabled") {
-		database.MongoConnect()
+		database.Connect()
+	}
+
+	if viper.GetBool("favicon.ignore") {
+		app.Use(middleware.Favicon())
+	}
+
+	if viper.GetBool("favicon.cache") {
+		app.Use(middleware.Favicon("./public/favicon.ico"))
+	}
+
+	if viper.GetBool("ratelimit.enabled") {
+		app.Use(limiter.New())
 	}
 
 	app.Static("/", "./public")

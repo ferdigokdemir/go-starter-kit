@@ -1,32 +1,40 @@
 package database
 
 import (
-	"context"
-	"time"
+	"go-starter-kit/models"
 
-	"github.com/spf13/viper"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
-var db *mongo.Database
+var db *gorm.DB
 
-func MongoInstance() *mongo.Database {
+// DB is getting gorm database instance
+func DB() *gorm.DB {
 	return db
 }
 
 // Connect is starting to mongodb connection
-func MongoConnect() *mongo.Database {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(viper.GetString("database.mongodb.uri")))
+func Connect() *gorm.DB {
+	connection, err := gorm.Open("sqlite3", "test.db")
 	if err != nil {
-		panic(err)
+		panic("failed to connect database")
 	}
-	db = client.Database(viper.GetString("database.mongodb.database"))
-	return db
+	db = connection
+
+	// Migrate the schema
+	db.AutoMigrate(&models.Todo{})
+
+	var todo *models.Todo = &models.Todo{
+		Title: "Bugün alışveriş yapacağım.",
+	}
+
+	db.Create(&todo)
+
+	return connection
 }
 
-func MongoClose() (err error) {
-	return db.Client().Disconnect(context.Background())
+// Close is closing db connection
+func Close() (err error) {
+	return DB().Close()
 }

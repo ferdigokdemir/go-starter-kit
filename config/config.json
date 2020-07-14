@@ -8,11 +8,11 @@
   "database": {
     "enabled": true,
     "mongodb": {
-      "database": "icindenevar",
-      "uri": "mongodb://lucy:mJCAbT3Vdc6I7bj0@icindenevar-shard-00-00.iby7b.mongodb.net:27017,icindenevar-shard-00-01.iby7b.mongodb.net:27017,icindenevar-shard-00-02.iby7b.mongodb.net:27017/icindenevar?ssl=true&replicaSet=atlas-6y38ji-shard-0&authSource=admin&retryWrites=true&w=majority"
+      "database": "",
+      "uri": ""
     },
     "mysql": {
-      "host": "localhost:3306",
+      "host": "",
       "user": "",
       "password": "",
       "database": ""

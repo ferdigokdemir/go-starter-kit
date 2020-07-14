@@ -2,10 +2,12 @@ package routes
 
 import (
 	"fmt"
-	"github.com/gofiber/fiber"
 	"go-starter-kit/controllers"
+
+	"github.com/gofiber/fiber"
 )
 
+// RegisterRoutes is setup routing
 func RegisterRoutes(app *fiber.App) {
 	api := app.Group("/api")
 	v1 := api.Group("/v1")
@@ -15,6 +17,6 @@ func RegisterRoutes(app *fiber.App) {
 		c.Send(msg)
 	})
 
-	categories := v1.Group("/categories")
-	categories.Get("/", controllers.GetCategories)
+	todos := v1.Group("/todos")
+	todos.Get("/", controllers.GetTodos)
 }
