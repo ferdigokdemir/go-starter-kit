@@ -73,7 +73,7 @@ config/config.json dosyasını açın. Veritabanı ve redis host ve port configu
     "enabled": true,
     "mongodb": {
       "database": "icindenevar",
-      "uri": "mongodb://lucy:mJCAbT3Vdc6I7bj0@icindenevar-shard-00-00.iby7b.mongodb.net:27017,icindenevar-shard-00-01.iby7b.mongodb.net:27017,icindenevar-shard-00-02.iby7b.mongodb.net:27017/icindenevar?ssl=true&replicaSet=atlas-6y38ji-shard-0&authSource=admin&retryWrites=true&w=majority"
+      "uri": "mongodb://luc4y:mJCAbT3Vd4c6I7bj0@icindenevar-shard-00-00.iby7b.mongodb.net:27017,icindenevar-shard-00-01.iby7b.mongodb.net:27017,icindenevar-shard-00-02.iby7b.mongodb.net:27017/icindenevar?ssl=true&replicaSet=atlas-6y38ji-shard-0&authSource=admin&retryWrites=true&w=majority"
     },
     "mysql": {
       "host": "localhost:3306",
@@ -82,7 +82,7 @@ config/config.json dosyasını açın. Veritabanı ve redis host ve port configu
       "database": ""
     },
     "redis": {
-      "uri": "redis://h:pe6481c1f5f9a56da6cdd147661fd344189e2f81cc756d640f2a7a4ce6bc769a6@ec2-54-158-192-49.compute-1.amazonaws.com:22079"
+      "uri": "redis://h:pe64481c1f5f9a56da6cdd147661fd344189e2f81cc756d640f2a7a4ce6bc769a6@ec2-54-158-192-49.compute-1.amazonaws.com:22079"
     }
   },
   "compression": {
